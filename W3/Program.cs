@@ -24,19 +24,6 @@ namespace W3
 
             StreamReader reader = new StreamReader(fileRead);
             readString = reader.ReadToEnd();
-
-            for (int i = 0; i < readString.Length; i++)
-            {
-                CheckChar = readString[i];
-                if (CheckChar == '.' || CheckChar == ',' || CheckChar == '!' || CheckChar == '?' ||
-                    CheckChar == ':' || CheckChar == ';' || CheckChar == '"' || CheckChar == '(' || CheckChar == ')')
-                {
-                    SynCount++;
-                    Console.WriteLine(SynCount);
-                }
-            }
-            File.AppendAllText(fileWrite, SynCount.ToString() + "\n");
-
             TextArr = readString.Split(new char[] { ' ', '.', ',' , ';' , '"', ':', '!' , '?', '(', ')' });
             foreach (string word in TextArr)
             {
